@@ -1,5 +1,5 @@
 
-node slave1 {
+node default {
 file { '/root/README':
 ensure => file, }
 }
