@@ -10,7 +10,8 @@ node slave1 {
    }
 
   -> file { '/etc/nginx/sites-available/static':
-   ensure => file, 
+   ensure => file,
+   name => conf
    source => 'puppet:///modules/static/servconf/config',
    }
 
@@ -22,6 +23,7 @@ node slave1 {
 
   -> file { '/etc/nginx/sites-available/static':
    ensure => 'link',
+   name => link
    target => '/etc/nginx/sites-enabled/',
    }
 
