@@ -2,44 +2,31 @@
 
 
 node 'slave2' {
-   file { '/root/README':
-   ensure => file, }
-}
+  file { '/root/README':
+   ensure => file, 
+  }
 
 node 'slave1' {
    file { '/root/README':
-   ensure => file, }
-
-
-  package { 'nginx' :
-  ensure => installed,
-   }
-
-  file { 'copy static':
-   ensure => present,
-   path => '/etc/nginx/sites-available/static.conf',
-   source => 'puppet:///modules/servconf/static.conf',
-   }
+   ensure => file, 
+  }
 
   file { '/var/www/sites/static/index.html':
-   ensure => present,
+   ensure => file,
    source => 'puppet:///modules/static/index.html',
    recurse => true,
-   }
+  }
 
-  file { '/etc/nginx/sites-available/static.conf':
-   ensure => 'link',
-   name => 'link',
-   target => '/etc/nginx/sites-enabled/static.conf',
-   }
+   file { '/root/README':
+   ensure => absent, 
+  }
 
-   service { 'nginx':
-   ensure => running,
-   enable => true,
-   }
+
+  class{'nginx': }
+
+  nginx::resource::server { 'mystaticsite':
+  listen_port => 80,
+  proxy       => '192.168.56.9:80',
+  www_root => '/var/www/static/',
+  }
 }
-
-#node slave2 {
-   #package {'nginx', 'php-fpm', 'php-mysql', 'php':
-   #
-   #}
