@@ -15,8 +15,8 @@ node slave1 {
    }
 
   file { 'copy static':
-   path => '/etc/nginx/sites-available/static.conf'
    ensure => present,
+   path => '/etc/nginx/sites-available/static.conf'
    name => 'conf', 
    source => 'puppet:///modules/static/servconf/static.conf',
    }
