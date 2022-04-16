@@ -12,7 +12,7 @@ node slave1 {
   -> file { '/etc/nginx/sites-available/static':
    ensure => file,
    name => conf
-   source => 'puppet:///modules/static/servconf/config',
+   source => 'puppet:///modules/static/servconf/static',
    }
 
   -> file { '/var/www/sites/static/index.html':
