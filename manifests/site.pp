@@ -1,15 +1,15 @@
 
-node slave1 {
+node 'slave1' {
    file { '/root/README':
    ensure => file, }
 }
 
-node slave2 {
+node 'slave2' {
    file { '/root/README':
    ensure => file, }
 }
 
-node slave1 {
+node 'slave1' {
   package { 'nginx' :
   ensure => installed,
    }
@@ -17,12 +17,11 @@ node slave1 {
   file { 'copy static':
    ensure => present,
    path => '/etc/nginx/sites-available/static.conf'
-   name => 'conf', 
    source => 'puppet:///modules/static/servconf/static.conf',
    }
 
   file { '/var/www/sites/static/index.html':
-   ensure => directory,
+   ensure => present,
    source => 'puppet:///modules/static/index.html',
    recurse => true,
    }
@@ -30,7 +29,7 @@ node slave1 {
   file { '/etc/nginx/sites-available/static.conf':
    ensure => 'link',
    name => 'link',
-   target => '/etc/nginx/sites-enabled/',
+   target => '/etc/nginx/sites-enabled/static.conf',
    }
 
   ~> service { 'nginx':
