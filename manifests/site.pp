@@ -1,8 +1,5 @@
 
-node 'slave1' {
-   file { '/root/README':
-   ensure => file, }
-}
+
 
 node 'slave2' {
    file { '/root/README':
@@ -10,6 +7,10 @@ node 'slave2' {
 }
 
 node 'slave1' {
+   file { '/root/README':
+   ensure => file, }
+}
+
   package { 'nginx' :
   ensure => installed,
    }
@@ -17,7 +18,7 @@ node 'slave1' {
   file { 'copy static':
    ensure => present,
    path => '/etc/nginx/sites-available/static.conf',
-   source => 'puppet:///modules/servconf/static.conf'
+   source => 'puppet:///modules/servconf/static.conf',
    }
 
   file { '/var/www/sites/static/index.html':
@@ -32,7 +33,7 @@ node 'slave1' {
    target => '/etc/nginx/sites-enabled/static.conf',
    }
 
-  ~> service { 'nginx':
+   service { 'nginx':
    ensure => running,
    enable => true,
    }
