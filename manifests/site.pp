@@ -7,9 +7,6 @@ node 'slave1' {
    source => 'puppet:///modules/static/index.html',
    recurse => true,
   }
-  file { '/root/README':
-   ensure => absent, 
-  }
   class{'nginx':
   }
   nginx::resource::server { 'mystaticsite':
