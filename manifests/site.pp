@@ -14,7 +14,7 @@ node slave1 {
   ensure => installed,
    }
 
-  file { :
+  file { 'copy static':
    path => '/etc/nginx/sites-available/static.conf'
    ensure => present,
    name => 'conf', 
