@@ -7,8 +7,7 @@ node 'slave1' {
    source => 'puppet:///modules/static/index.html',
    recurse => true,
   }
-  class{'nginx':
-  }
+  include nginx
   nginx::resource::server { 'mystaticsite':
    listen_port => 80,
    proxy       => '192.168.56.9:80',
