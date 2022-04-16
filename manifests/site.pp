@@ -4,7 +4,6 @@ node 'slave1' {
   }
   file { '/var/www/sites/static/':
    ensure => directory,
-   recurse => true,
   }
   file {'/var/www/static/':
   ensure => file,
