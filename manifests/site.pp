@@ -11,6 +11,6 @@ node 'slave1' {
   -> nginx::resource::server { 'static':
    listen_port => 80,
    proxy       => '192.168.56.9:80',
-   www_root => '/var/www/static/',
+   #www_root => '/var/www/static/',
   }
 }
