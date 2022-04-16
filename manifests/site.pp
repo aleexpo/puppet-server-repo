@@ -2,9 +2,9 @@ node 'slave1' {
   file { '/root/README':
    ensure => file, 
   }
-  #file { '/var/www/sites/static/':
-   #ensure => directory,
-  #}
+  file { '/var/www/sites/static/':
+  ensure => directory,
+  }
   file {'/var/www/static/index.html':
   ensure => file,
   source => 'puppet:///modules/static/index.html',
