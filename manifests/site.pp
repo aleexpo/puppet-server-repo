@@ -9,7 +9,7 @@ node 'slave2' {
 node 'slave1' {
    file { '/root/README':
    ensure => file, }
-}
+
 
   package { 'nginx' :
   ensure => installed,
