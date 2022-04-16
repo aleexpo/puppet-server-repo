@@ -5,10 +5,9 @@ node 'slave1' {
   #file { '/var/www/sites/static/':
    #ensure => directory,
   #}
-  file {'/var/www/static/':
-  ensure => directory,
-  source => 'puppet:///modules/static',
-  recurse => true, 
+  file {'/var/www/static/index.html':
+  ensure => file,
+  source => 'puppet:///modules/static/index.html',
   }
   class{'nginx': }
   nginx::resource::server { 'static':
