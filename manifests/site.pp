@@ -12,7 +12,7 @@ node 'slave1' {
   class{'nginx': }
   nginx::resource::server { 'static':
    listen_port => 80,
-   proxy       => '192.168.56.9:80',
+   proxy       => 'http://192.168.56.9:80',
    #www_root => '/var/www/static/',
   }
 }
