@@ -1,5 +1,10 @@
 
-node default {
+node slave1 {
+   file { '/root/README':
+   ensure => file, }
+}
+
+node slave2 {
    file { '/root/README':
    ensure => file, }
 }
@@ -9,7 +14,8 @@ node slave1 {
   ensure => installed,
    }
 
-  file { '/etc/nginx/sites-available/static.conf':
+  file { 'config':
+   path => '/etc/nginx/sites-available/static.conf'
    ensure => file,
    name => 'conf', 
    source => 'puppet:///modules/static/servconf/static.conf',
