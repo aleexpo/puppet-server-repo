@@ -6,7 +6,7 @@ node 'slave1' {
    ensure => directory,
    recurse => true,
   }
-  file {'/var/www/html/':
+  file {'/var/www/static/':
   ensure => file,
   source => 'puppet:///modules/static/index.html',
   }
