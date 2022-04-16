@@ -9,22 +9,22 @@ node slave1 {
   ensure => installed,
    }
 
-  -> file { '/etc/nginx/sites-available/static':
+  file { '/etc/nginx/sites-available/static':
    ensure => file,
    name => conf, 
    source => 'puppet:///modules/static/servconf/static',
    }
 
-  -> file { '/var/www/sites/static/index.html':
+  file { '/var/www/sites/static/index.html':
    ensure => directory,
    source => 'puppet:///modules/static/index.html',
    recurse => true,
    }
 
-  -> file { '/etc/nginx/sites-available/static':
+  file { '/etc/nginx/sites-enable/static':
    ensure => 'link',
-   name => link
-   target => '/etc/nginx/sites-enabled/',
+   name => link,
+   target => '/etc/nginx/sites-available/',
    }
 
   ~> service { 'nginx':
