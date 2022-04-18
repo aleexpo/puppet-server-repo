@@ -64,9 +64,9 @@ node 'master.puppet' {
    proxy       => 'http://192.168.56.10:81',
    www_root => '/var/www/php',
   }
-  ~> service {'nginx':
-    ensure => running, 
-    enable => true
-  }
+  #~> service {'nginx':
+    #ensure => running, 
+    #enable => true
+ #}
 }
 
