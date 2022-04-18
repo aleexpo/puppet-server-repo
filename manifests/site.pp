@@ -64,5 +64,5 @@ node 'master.puppet' {
 
 
 node 'mineserver.puppet'{
- include minecraft-auto-inst
+ include minecraftauto
 } 

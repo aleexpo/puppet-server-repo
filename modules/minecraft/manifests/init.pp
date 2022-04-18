@@ -1,4 +1,4 @@
-class minecraft-auto-inst {
+class minecraftauto {
   Package { ensure => 'installed' }
   package { 'default-jre': }
   package { 'default-jdk': }
