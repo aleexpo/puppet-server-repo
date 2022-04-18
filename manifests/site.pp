@@ -45,9 +45,11 @@ node 'slave2' {
 }
 
 node 'master.puppet' {
-  include nginx
+  class {'nginx':
+  use_default_location = 'false',
+  }
   nginx::resource::server { 'static':
-   listen_port => 82,
+   listen_port => 80,
    proxy       => 'http://192.168.56.9:80',
   }
   nginx::resource::server { 'dynamic':
