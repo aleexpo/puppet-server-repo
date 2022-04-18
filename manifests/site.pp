@@ -45,8 +45,9 @@ node 'slave2' {
 }
 
 node 'master.puppet' {
-  class {'nginx':
-  use_default_location=false,
+  include nginx
+  file { '/usr/share/nginx/html/index.html':
+   ensure => 'absent', 
   }
   nginx::resource::server { 'static':
    listen_port => 80,
