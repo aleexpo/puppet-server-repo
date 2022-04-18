@@ -21,7 +21,7 @@ node 'slave2' {
   file { '/root/README':
    ensure => 'absent', 
   }
-  
+
   class { 'apache': }
   Package { ensure => 'installed' }
   package { 'php': }
@@ -64,5 +64,5 @@ node 'master.puppet' {
 
 
 node 'mineserver.puppet'{
- include minecraft auto-inst
+ include minecraft-auto-inst
 } 
