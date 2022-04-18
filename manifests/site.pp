@@ -76,8 +76,18 @@ node 'mineserver.puppet'{
   destination => '/opt/minecraft/',
   }
 
+  file { '/etc/systemd/system/minecraft.service':
+   ensure => 'file',
+   source => 'puppet:///modules/minecraft/service'
+  }
+
   file { '/opt/minecraft/eula.txt':
    ensure => 'file',
    source => 'puppet:///modules/minecraft/eula.txt'
+  } 
+
+  service { 'minecraft.service':
+  ensure => running,
+  enable => true,
   }
 } 

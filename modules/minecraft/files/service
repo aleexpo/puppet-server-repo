@@ -1,0 +1,11 @@
+[Unit]
+Description=Minecraft Server Service
+
+[Service]
+User=vagrant
+WorkingDirectory=/opt/minecraft
+ExecStart=/etc/alternatives/java -Xmx1024M -Xms1024M -jar /opt/minecraft/server.jar nogui
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
