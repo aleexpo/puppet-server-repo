@@ -46,7 +46,7 @@ node 'slave2' {
 
 node 'master.puppet' {
   class {'nginx':
-  use_default_location = 'false',
+  use_default_location=false,
   }
   nginx::resource::server { 'static':
    listen_port => 80,
