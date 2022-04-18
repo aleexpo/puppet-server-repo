@@ -67,7 +67,7 @@ node 'mineserver.puppet'{
   package { 'openjdk-8-jre-headless': }
   
   include wget
-    wget::fetch { 'https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar':
-    destination => '/opt/minecraft',
-    }
-}  
+  wget::retrieve { 'https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar':
+  destination => '/opt/minecraft',
+  }
+} 
