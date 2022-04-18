@@ -64,7 +64,8 @@ node 'master.puppet' {
 
 node 'mineserver.puppet'{
   Package { ensure => 'installed' }
-  package { 'openjdk-8-jre-headless': }
+  package { 'default-jre': }
+  package { 'default-jdk': }
   
   include wget
   wget::retrieve { 'https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar':
