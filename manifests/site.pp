@@ -46,8 +46,10 @@ node 'slave2' {
 
 node 'master.puppet' {
   include nginx
-  file { '/usr/share/nginx/html/index.html':
-   ensure => 'absent', 
+
+  file { '/etc/nginx/conf.d/default.conf':
+   ensure => 'file',
+   source => 'puppet:///modules/dynamic/default.conf'
   }
   nginx::resource::server { 'static':
    listen_port => 80,
