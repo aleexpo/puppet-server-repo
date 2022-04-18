@@ -15,10 +15,6 @@ node 'slave1' {
   docroot       => '/var/www/html',
   }
 
-  ~> service {'apache2':
-    ensure => running, 
-    enable => true,
-  }
 }
 
 node 'slave2' {
@@ -46,10 +42,6 @@ node 'slave2' {
   docroot       => '/var/www/php',
   }
 
-  ~> service {'apache2':
-    ensure => running, 
-    enable => true
-  }
 }
 
 node 'master.puppet' {
