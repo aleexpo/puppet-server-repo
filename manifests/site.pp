@@ -49,12 +49,12 @@ node 'master.puppet' {
   nginx::resource::server { 'static':
    listen_port => 80,
    proxy       => 'http://192.168.56.9:80',
-   www_root => '/var/www/html/',
+   #www_root => '/var/www/html/',
   }
   nginx::resource::server { 'dynamic':
    listen_port => 81,
    proxy       => 'http://192.168.56.10:81',
-   www_root => '/var/www/php',
+   #www_root => '/var/www/php',
   }
   #~> service {'nginx':
     #ensure => running, 
