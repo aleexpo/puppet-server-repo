@@ -64,5 +64,5 @@ node 'master.puppet' {
 
 
 node 'mineserver.puppet'{
-  class {'minecraftauto':}
+  include minecraft
 } 

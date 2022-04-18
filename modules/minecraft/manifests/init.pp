@@ -1,4 +1,4 @@
-class minecraftauto {
+class minecraft {
   Package { ensure => 'installed' }
   package { 'default-jre': }
   package { 'default-jdk': }
