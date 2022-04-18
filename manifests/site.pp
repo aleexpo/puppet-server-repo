@@ -47,18 +47,12 @@ node 'slave2' {
 node 'master.puppet' {
   include nginx
   nginx::resource::server { 'static':
-   listen_port => 80,
+   listen_port => 82,
    proxy       => 'http://192.168.56.9:80',
-   #www_root => '/var/www/html/',
   }
   nginx::resource::server { 'dynamic':
    listen_port => 81,
    proxy       => 'http://192.168.56.10:81',
-   #www_root => '/var/www/php',
   }
-  #~> service {'nginx':
-    #ensure => running, 
-    #enable => true
- #}
 }
 
