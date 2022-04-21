@@ -39,7 +39,7 @@ node 'slave2' {
   }
 
   -> apache::vhost { 'dynamic':
-  port          => '80',
+  port          => '81',
   docroot       => '/var/www/php',
   }
 
@@ -57,7 +57,7 @@ node 'master.puppet' {
    proxy       => 'http://192.168.56.9:80',
   }
   nginx::resource::server { 'dynamic':
-   listen_port => 80,
+   listen_port => 81,
    proxy       => 'http://192.168.56.10:80',
   }
 }
