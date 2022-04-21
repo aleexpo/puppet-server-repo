@@ -22,8 +22,8 @@ class minecraft {
    source => 'puppet:///modules/minecraft/eula.txt'
   } 
 
-  service { 'minecraft.service':
-  ensure => running,
-  enable => true,
+  ~> service { 'minecraft.service':
+      ensure => running,
+      enable => true,
   }
 }
