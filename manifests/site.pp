@@ -33,7 +33,7 @@ node 'slave2' {
   ensure => 'directory',
   }
 
-  -> file {'/var/www/php/index.html':
+  -> file {'/var/www/php/index.php':
   ensure => 'file',
   source => 'puppet:///modules/dynamic/index.php',
   }
