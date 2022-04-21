@@ -22,7 +22,9 @@ node 'slave2' {
    ensure => 'absent', 
   }
 
-  class { 'apache': }
+  class { 'apache': 
+  default_vhost => false,
+  }
   Package { ensure => 'installed' }
   package { 'php': }
   package { 'libapache2-mod-php': }
@@ -57,7 +59,7 @@ node 'master.puppet' {
    proxy       => 'http://192.168.56.9:80',
   }
   nginx::resource::server { 'dynamic':
-   listen_port => 80,
+   listen_port => 81,
    proxy       => 'http://192.168.56.10:80',
   }
 }
